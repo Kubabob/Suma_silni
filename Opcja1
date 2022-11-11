@@ -1,0 +1,28 @@
+import time
+start_time = time.time()
+
+odp = []
+i = 1
+
+def silnia(n):
+    i = 1
+    for s in range(2, n+1):
+        i *= s
+    return i
+
+def zad(liczba):
+    liczba1 = liczba
+    for i in range(len(str(liczba1))):
+        liczba -= silnia(int(str(liczba1)[i]))
+    if liczba == 0:
+        odp.append(liczba1)
+
+while True:
+    zad(i)
+    i += 1
+    if len(odp) == 4:
+        break
+
+print(odp)
+
+print(f'---{time.time()-start_time} seconds---')
