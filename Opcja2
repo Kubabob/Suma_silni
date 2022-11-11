@@ -1,0 +1,35 @@
+import time
+start_time = time.time()
+czesci = []
+odp = []
+i = 1
+
+def silnia(n):
+    i = 1
+    for s in range(2, n+1):
+        i *= s
+    return i
+
+def zad(liczba):
+    czesci = []
+    liczba1 = liczba
+    liczba2 = liczba
+    for i in range(len(str(liczba))):
+        czesci.append(liczba // int(('1' + (int(len(str(liczba))) - 1) * '0')))
+        liczba -= (liczba // (int('1' + (int(len(str(liczba))) - 1) * '0'))) * (int('1' + (int(len(str(liczba))) - 1) * '0'))
+        liczba1 -= silnia(czesci[i])
+    if liczba1 == 0:
+        odp.append(liczba2)
+
+while True:
+    zad(i)
+    i += 1
+    if len(odp) == 4:
+        break
+
+print(odp)
+
+print(f'---{time.time()-start_time}seconds---')
+
+
+
